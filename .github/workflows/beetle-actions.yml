@@ -14,8 +14,6 @@ jobs:
         uses: clivern/beetle-actions@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
-          PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
           BEETLE_NUMERIC_TAG: true
           BEETLE_WATCH_DEPLOYMENT: true
           BEETLE_API_URL: ${{secrets.BEETLE_API_URL }}
@@ -24,6 +22,5 @@ jobs:
           BEETLE_NAMESPACE_NAME: ${{secrets.BEETLE_NAMESPACE_NAME }}
           BEETLE_APP_ID: ${{secrets.BEETLE_APP_ID }}
           BEETLE_DEPLOYMENT_STRATEGY: ${{secrets.BEETLE_DEPLOYMENT_STRATEGY }}
-          BEETLE_APP_VERSION: ${{secrets.BEETLE_APP_VERSION }}
           BEETLE_MAX_SURGE: ${{secrets.BEETLE_MAX_SURGE }}
           BEETLE_MAX_UNAVAILABLE: ${{secrets.BEETLE_MAX_UNAVAILABLE }}
