@@ -18,11 +18,13 @@
 
 1. Create github action by adding the following to your `workflow.yml`.
 
-```yml
+```yaml
 name: workflow_name
 
 on:
-    # may vary based on modules enabled
+  push:
+    tags:
+      - '*'
 
 jobs:
   beetle-actions:
@@ -35,7 +37,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
           PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
+          BEETLE_NUMERIC_TAG: true
+          BEETLE_WATCH_DEPLOYMENT: true
+          BEETLE_API_URL: ${{secrets.BEETLE_API_URL }}
+          BEETLE_API_KEY: ${{secrets.BEETLE_API_KEY }}
+          BEETLE_CLUSTER_NAME: ${{secrets.BEETLE_CLUSTER_NAME }}
+          BEETLE_NAMESPACE_NAME: ${{secrets.BEETLE_NAMESPACE_NAME }}
+          BEETLE_APP_ID: ${{secrets.BEETLE_APP_ID }}
+          BEETLE_DEPLOYMENT_STRATEGY: ${{secrets.BEETLE_DEPLOYMENT_STRATEGY }}
+          BEETLE_APP_VERSION: ${{secrets.BEETLE_APP_VERSION }}
+          BEETLE_MAX_SURGE: ${{secrets.BEETLE_MAX_SURGE }}
+          BEETLE_MAX_UNAVAILABLE: ${{secrets.BEETLE_MAX_UNAVAILABLE }}
 ```
+
+2. Add all beetle action secrets in github settings > secrets page.
+
 
 ## Versioning
 
