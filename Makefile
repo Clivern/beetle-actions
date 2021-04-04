@@ -1,7 +1,6 @@
 GO           ?= go
 GOFMT        ?= $(GO)fmt
 pkgs          = ./...
-HUGO ?= hugo
 
 
 help: Makefile

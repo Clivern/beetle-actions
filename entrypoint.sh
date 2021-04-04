@@ -5,9 +5,11 @@
 /app/beetle version
 
 # Load github actions data as env vars
-/app/beetle-actions trigger
+/app/beetle-actions trigger -e /github/workflow/event.json -v
 
-if [ $BEETLE_WATCH_DEPLOYMENT ]
+export BEETLE_APP_VERSION=$(/app/beetle-actions tag -e /github/workflow/event.json)
+
+if [[ $BEETLE_WATCH_DEPLOYMENT = "true" ]]
 then
     # Watch deployment progress
     /app/beetle deploy --api_url $BEETLE_API_URL --api_key $BEETLE_API_KEY --cluster $BEETLE_CLUSTER_NAME --namespace $BEETLE_NAMESPACE_NAME -a $BEETLE_APP_ID -s $BEETLE_DEPLOYMENT_STRATEGY -v $BEETLE_APP_VERSION --max_surge $BEETLE_MAX_SURGE --max_unavailable $BEETLE_MAX_UNAVAILABLE -w

@@ -11,12 +11,19 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// Verbose var
+var Verbose bool
+
 var rootCmd = &cobra.Command{
 	Use: "beetle-actions",
 	Short: `🔥 Deploy to Kubernetes Cluster Using Beetle
 
 Beetle Actions is in early stages of development, and we'd love to hear your
 feedback at <https://github.com/Clivern/beetle-actions>`,
+}
+
+func init() {
+	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "verbose output")
 }
 
 // Execute runs cmd tool
