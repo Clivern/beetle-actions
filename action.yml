@@ -1,0 +1,10 @@
+# action.yml
+name: 'beetle-actions'
+description: 'Deploy to Kubernetes Cluster Using Beetle'
+branding:
+  icon: 'package'
+  color: 'red'
+
+runs:
+  using: 'docker'
+  image: 'docker://clivern/beetle-actions:release-0.1.0'
