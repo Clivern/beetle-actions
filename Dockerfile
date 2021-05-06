@@ -1,4 +1,4 @@
-FROM golang:1.16.3
+FROM golang:1.16.4
 
 LABEL "com.github.actions.name"="beetle-actions"
 LABEL "com.github.actions.description"="Deploy to Kubernetes Cluster Using Beetle"
